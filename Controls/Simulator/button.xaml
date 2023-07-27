@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="SIMULATOR.Controls.button"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SIMULATOR.Controls"
+             mc:Ignorable="d" Height="85" Width="90">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="foreground" Color="#22202E"></SolidColorBrush>
+        <SolidColorBrush x:Key="background" Color="#282538"></SolidColorBrush>
+        <SolidColorBrush x:Key="foregorundHighlight" Color="#50B6FE"></SolidColorBrush>
+        <SolidColorBrush x:Key="backgroundHighlight" Color="#FF181E36"></SolidColorBrush>
+        <SolidColorBrush x:Key="fontColor" Color="#A5A5B0"></SolidColorBrush>
+    </UserControl.Resources>
+    <Grid PreviewMouseLeftButtonDown="mouseLeftDown"
+          PreviewMouseLeftButtonUp="mouseLeftUp"
+          MouseEnter="mouseEnter"
+          MouseLeave="mouseLeave"
+          Background="Transparent"
+          VerticalAlignment="Center"
+          HorizontalAlignment="Center"
+          RenderTransformOrigin="0.5,0.5">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="2" RenderTransformOrigin="0.5,0.5">
+            <Path   Stroke="{StaticResource foregorundHighlight}"  
+                    VerticalAlignment="Center" 
+                    HorizontalAlignment="Center"
+                    x:Name="buttonLineIndicator"
+                    StrokeThickness="1"
+                    Panel.ZIndex="1"
+                    Fill="{StaticResource backgroundHighlight}">
+                <Path.Data>
+                    <PathGeometry Figures="M 1,41 A 40,40 0 1 1 81,41 A 40,40 0 1 1 1,41" />
+                </Path.Data>
+            </Path>
+            <Label   Panel.ZIndex="2"
+                     FontSize="34" 
+                     FontFamily="Roboto" 
+                     FontWeight="UltraLight" 
+                     x:Name="numberContainer" 
+                     Background="Transparent" 
+                     BorderThickness="0"
+                     FontStretch="UltraCondensed"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Foreground="{StaticResource fontColor}">
+                1
+            </Label>
+            <Grid.RenderTransform>
+                <ScaleTransform x:Name="st"></ScaleTransform>
+            </Grid.RenderTransform>
+        </Grid>
+        <Path   Stroke="{StaticResource fontColor}"
+                StrokeThickness="3"
+                Panel.ZIndex="1" 
+                VerticalAlignment="Center" 
+                HorizontalAlignment="Center" 
+                RenderTransformOrigin="0.5,0.5"
+                x:Name="buttonColorIndicator">
+            <Path.Data>
+                <PathGeometry Figures="M 1,41 A 40,40 0 1 1 81,41 A 40,40 0 1 1 1,41" />
+            </Path.Data>
+            <Path.RenderTransform>
+                <ScaleTransform ScaleX="1.2" ScaleY="1.2">
+                </ScaleTransform>
+            </Path.RenderTransform>
+        </Path>
+        <Grid.RenderTransform>
+            <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+        </Grid.RenderTransform>
+    </Grid>
+</UserControl>

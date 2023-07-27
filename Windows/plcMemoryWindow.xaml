@@ -1,0 +1,44 @@
+﻿<Window x:Class="SIMULATOR.plcMemoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SIMULATOR.Controls"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="lightgray"
+        Closed="Window_Closed"
+        Width="780">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <local:titleBar Title="Supervisión de un Elevador"></local:titleBar>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="Transparent">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="20"></Setter>
+                    <Setter Property="Width" Value="100"></Setter>
+                    <Setter Property="TextTrimming" Value="CharacterEllipsis"></Setter>
+                    <Setter Property="Margin" Value="10,2,10,2"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock>Nombre</TextBlock>
+            <TextBlock>Variable</TextBlock>
+            <TextBlock>Dirección</TextBlock>
+            <TextBlock>Grupo</TextBlock>
+            <TextBlock>Acceso</TextBlock>
+            <TextBlock>Valor</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Height="1" Background="Black"></StackPanel>
+        <ScrollViewer Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel x:Name="genericVariableContainer" HorizontalAlignment="Left" VerticalAlignment="Top">
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

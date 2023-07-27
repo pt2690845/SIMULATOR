@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="SIMULATOR.Controls.cabinSensors"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SIMULATOR.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="850" d:DesignWidth="375">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="fontColor" Color="#A5A5B0"></SolidColorBrush>
+    </UserControl.Resources>
+    <Canvas Name="Container" 
+            Height="825"
+            Width="250"
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Center" 
+            Background="Transparent" 
+            PreviewMouseWheel="WheelMoved" 
+            MouseLeftButtonDown="MouseDown_Container">
+        <Label Canvas.Left="270" Canvas.Top="746" FontSize="19" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Puertas" Foreground="{StaticResource fontColor}"/>
+        <Label Canvas.Top="746" FontSize="19" HorizontalAlignment="Center" VerticalAlignment="Top" Content="Carga" Foreground="{StaticResource fontColor}"/>
+        <local:sliderWithLimit x:Name="loadSensor" MinValue="0" MaxValue="1000" LimitValue="750" Canvas.Top="780" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Left="-5">
+            <local:sliderWithLimit.RenderTransform>
+                <ScaleTransform ScaleX="0.45" ScaleY="0.45"></ScaleTransform>
+            </local:sliderWithLimit.RenderTransform>
+        </local:sliderWithLimit>
+        <local:toggle x:Name="doorSensor" TextOn="" TextOff="" Canvas.Left="136" Canvas.Top="785" IsRed="True" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <local:toggle.RenderTransform>
+                <ScaleTransform ScaleX="0.7" ScaleY="0.7"></ScaleTransform>
+            </local:toggle.RenderTransform>
+        </local:toggle>
+
+    </Canvas>
+</UserControl>

@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="SIMULATOR.Controls.loadIndicator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SIMULATOR.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Canvas Width="90" Height="150" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Path Stroke="Aquamarine" x:Name="Bottom" StrokeThickness="4">
+            <Path.Data>
+                <PathGeometry Figures="M -5,155 L 95,155"></PathGeometry>
+            </Path.Data>
+        </Path>
+        <Path Stroke="Aquamarine" x:Name="Lateral" StrokeThickness="4"  RenderTransformOrigin="0,1">
+            <Path.Data>
+                <PathGeometry Figures="M -5,-5 L -5,155 M 95,155 L 95,-5"></PathGeometry>
+            </Path.Data>
+            <Path.RenderTransform>
+                <ScaleTransform x:Name="st"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path Stroke="red" x:Name="Top" StrokeThickness="4" Visibility="Collapsed">
+            <Path.Data>
+                <PathGeometry Figures="M 95,-5 L -5,-5"></PathGeometry>
+            </Path.Data>
+        </Path>
+        <Canvas.RenderTransform>
+            <TransformGroup>
+                <TranslateTransform x:Name="tt"/>
+            </TransformGroup>
+        </Canvas.RenderTransform>
+    </Canvas>
+    
+</UserControl>

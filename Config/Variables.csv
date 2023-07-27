@@ -1,0 +1,123 @@
+﻿Nombre;Descripción;Tipo de variable;Dirección;Grupo;Acceso;Grupo de estados
+BC0;Pulsador Cabina Planta 0;1_bit;%M0.0;Input;Write;
+BC1;Pulsador Cabina Planta 1;1_bit;%M0.1;Input;Write;
+BC2;Pulsador Cabina Planta 2;1_bit;%M0.2;Input;Write;
+BC3;Pulsador Cabina Planta 3;1_bit;%M0.3;Input;Write;
+BCC;Pulsador Cabina Cierre Puertas;1_bit;%M0.4;Input;Write;
+BCA;Pulsador Cabina Apertura Puertas;1_bit;%M0.5;Input;Write;
+BP0;Pulsador Planta 0;1_bit;%M0.6;Input;Write;
+BP1;Pulsador Planta 1;1_bit;%M0.7;Input;Write;
+BP2;Pulsador Planta 2;1_bit;%M1.0;Input;Write;
+BP3;Pulsador Planta 3;1_bit;%M1.1;Input;Write;
+IBL0;Interruptor Biestable Planta 0;1_bit;%M1.2;Input;Write;
+IBL1;Interruptor Biestable Planta 1;1_bit;%M1.3;Input;Write;
+IBL2;Interruptor Biestable Planta 2;1_bit;%M1.4;Input;Write;
+IBL3;Interruptor Biestable Planta 3;1_bit;%M1.5;Input;Write;
+FCPA;Final de Carrera Apertura Puerta;1_bit;%M1.6;Input;Write;
+FCPC;Final de Carrera Cierre Puerta;1_bit;%M1.7;Input;Write;
+SO;Sensor Obstáculo Puerta Cabina;1_bit;%M2.0;Input;Write;
+SC;Sensor Carga Cabina;1_bit;%M2.1;Input;Write;
+Activar;Señal de activación del sistema;1_bit;%M2.2;Input;Write;
+Desactivar;Señal de desactivación del sistema;1_bit;%M2.3;Input;Write;
+MA;Señal de selección de modo manual;1_bit;%M2.4;Input;Write;
+AUTO;Señal de selección de modo automático;1_bit;%M2.5;Input;Write;
+eParada;Señal de emergencia que requiere parada;1_bit;%M2.6;Input;Write;
+finEParada;Señal fin de emergencia que requiere parada;1_bit;%M2.7;Input;Write;
+eDescenso;Señal de emergencia que require descender a la planta baja;1_bit;%M3.0;Input;Write;
+finEDescenso;Señal fin de emergencia que requiere descender a la planta baja;1_bit;%M3.1;Input;Write;
+BA;Botón Ascender Manual;1_bit;%M3.2;Input;Write;
+BD;Botón Descender Manual;1_bit;%M3.3;Input;Write;
+BI;Botón Ignorar Manual;1_bit;%M3.4;Input;Write;
+Reposo;0-Estado de reposo;1_bit;%M10.0;State;Read;Marcha/Paro del sistema
+Sistema Activado;1-Estado de sistema activado;1_bit;%M10.1;State;Read;Marcha/Paro del sistema
+Sistema Desactivado;2-Estado de sistema desactivado;1_bit;%M10.2;State;Read;Marcha/Paro del sistema
+Inicio Selección Modo;10-Estado de inicio de la selección de modo;1_bit;%M10.3;State;Read;Selección de Modo
+Modo Manual;11-Estado de selección de modo manual;1_bit;%M10.4;State;Read;Selección de Modo
+Modo Automático;12-Estado de selección de modo automático;1_bit;%M10.5;State;Read;Selección de Modo
+Inicio Movimiento;20-Estado de preparación para el movimiento;1_bit;%M10.6;State;Read;Movimiento de la cabina
+Espera Orden Movimiento;21-Estado de espera de órden de movimiento;1_bit;%M10.7;State;Read;Movimiento de la cabina
+Subiendo;22-Estado de movimiento ascendente;1_bit;%M11.0;State;Read;Movimiento de la cabina
+Bajando 1;23-Estado de movimiento descendente;1_bit;%M11.1;State;Read;Movimiento de la cabina
+Fin Movimiento 1;24-Estado de fin de movimiento por llegada a la planta objetivo;1_bit;%M11.2;State;Read;Movimiento de la cabina
+Fin Movimiento 2;25-Estado de fin de movimiento por activación de modo de segunridad;1_bit;%M11.3;State;Read;Movimiento de la cabina
+Inicio Apertura de Puertas;30-Estado de preparación iniciar el ciclo de apertura y cierre de puertas;1_bit;%M11.4;State;Read;Apertura y cierre de puertas
+Abriendo Puertas 1;31-Estado de apertura de puertas;1_bit;%M11.5;State;Read;Apertura y cierre de puertas
+Entrada y Salida de Personas;32-Estado de espera a la entrada y salida de personas;1_bit;%M11.6;State;Read;Apertura y cierre de puertas
+Reset;33-Estado de reset del timer de cierre;1_bit;%M11.7;State;Read;Apertura y cierre de puertas
+Cerrando Puertas 1;34-Estado de cierre de puertas;1_bit;%M12.0;State;Read;Apertura y cierre de puertas
+Fin Cierra Puertas;35-Estado de fin de la operación de cierre de puertas;1_bit;%M12.1;State;Read;Apertura y cierre de puertas
+Inicio Reset;40-Estado de inicio para el reseteo de memorias;1_bit;%M12.2;State;Read;Reset de llamada y memoria
+Reset llamada;41-Estado de reseteo de llamadas;1_bit;%M12.3;State;Read;Reset de llamada y memoria
+No reset memoria;42-Estado en el que no se resetean las memorias;1_bit;%M12.4;State;Read;Reset de llamada y memoria
+Reset memoria;43-Estado en el que se resetean las memorias;1_bit;%M12.5;State;Read;Reset de llamada y memoria
+Inicio decisión automática;50-Estado de preparación para la toma de decisiones de movimiento ;1_bit;%M12.6;State;Read;Órdenes automáticas de subida y bajada
+Orden Subida 1;51-Estado de emisión de órden de subida;1_bit;%M12.7;State;Read;Órdenes automáticas de subida y bajada
+Orden Bajada 1;52-Estado de emisión de órden de bajada;1_bit;%M13.0;State;Read;Órdenes automáticas de subida y bajada
+Inicio decisión manual;60-Estado de preparación para la toma de desiciones de movimiento manual;1_bit;%M13.1;State;Read;Órdenes manuales de subida y bajada
+Indica Subida;61-Estado de indicación de subida;1_bit;%M13.2;State;Read;Órdenes manuales de subida y bajada
+Indica Subida y Bajada;62-Estado de indicación de subida y bajada simultáneamente;1_bit;%M13.3;State;Read;Órdenes manuales de subida y bajada
+Indica Bajada;63-Estado de indicación de bajada;1_bit;%M13.4;State;Read;Órdenes manuales de subida y bajada
+Orden Subida 2;64-Estado de emisión de órden de subida;1_bit;%M13.5;State;Read;Órdenes manuales de subida y bajada
+No Orden;65-Estado de no emisión de órdenes;1_bit;%M13.6;State;Read;Órdenes manuales de subida y bajada
+Orden Bajada 2;66-Estado de emisión de órden de bajada;1_bit;%M13.7;State;Read;Órdenes manuales de subida y bajada
+Detección Error 1;70-Estado de detección de error de categoría 1;1_bit;%M14.0;State;Read;Detección de errores
+Error 1;71-Estado de establecimiento de error de categoría 1;1_bit;%M14.1;State;Read;Detección de errores
+Fin Error 1;72-Estado de finalización de error de categoría 1;1_bit;%M14.2;State;Read;Detección de errores
+Detección Error 2;73-Estado de detección de error de categoría 2;1_bit;%M14.3;State;Read;Detección de errores
+Error 2;74-Estado de establecimiento de error de categoría 2;1_bit;%M14.4;State;Read;Detección de errores
+Fin Error 2;75-Estado de finalización de error de categoría 2;1_bit;%M14.5;State;Read;Detección de errores
+Gestión Error 1;80-Estado de inicio de gestion de error de categoría 1;1_bit;%M14.6;State;Read;Gestión de errores
+Parada ;81-Estado de para de emergencia;1_bit;%M14.7;State;Read;Gestión de errores
+Descenso 1;82-Estado de descenso a primera planta para llevar a cabo la vuelta a condiciones iniciales;1_bit;%M15.0;State;Read;Gestión de errores
+Gestión Error 2;83-Estado de inicion de gestión de error de categoría 2;1_bit;%M15.1;State;Read;Gestión de errores
+Bajando 2;84-Estado de descenso de emergencia;1_bit;%M15.2;State;Read;Gestión de errores
+Abriendo Puertas 2;85-Estado de apertura de puertas por tiempo indefinido;1_bit;%M15.3;State;Read;Gestión de errores
+Espera;86-Estado de espera a la finalización de la emergencia;1_bit;%M15.4;State;Read;Gestión de errores
+Cerrando Puertas 2;87-Estado de cierre de puertas para la vuelta a las condiciones iniciales;1_bit;%M15.5;State;Read;Gestión de errores
+Desactivación;88-Estado de desactivación del sistema;1_bit;%M15.6;State;Read;Gestión de errores
+Detección Descenso;90-Estado de detección de descenso a primera planta para la vuelta a las condiciones iniciales;1_bit;%M15.7;State;Read;Descenso a primera planta
+Descenso 2;91-Estado de descenso a primera planta;1_bit;%M16.0;State;Read;Descenso a primera planta
+Fin Descenso;92-Estado de finalización del descenso a primera planta;1_bit;%M16.1;State;Read;Descenso a primera planta
+LBC0;Lámpara Pulsador Cabina Planta 0;1_bit;%M30.0;Output;Read;
+LBC1;Lámpara Pulsador Cabina Planta 1;1_bit;%M30.1;Output;Read;
+LBC2;Lámpara Pulsador Cabina Planta 2;1_bit;%M30.2;Output;Read;
+LBC3;Lámpara Pulsador Cabina Planta 3;1_bit;%M30.3;Output;Read;
+LBP0;Lámpara Pulsador Planta 0;1_bit;%M30.4;Output;Read;
+LBP1;Lámpara Pulsador Planta 1;1_bit;%M30.5;Output;Read;
+LBP2;Lámpara Pulsador Planta 2;1_bit;%M30.6;Output;Read;
+LBP3;Lámpara Pulsador Planta 3;1_bit;%M30.7;Output;Read;
+MCD;Orden Giro Motor Cabina Derecha - Ascender;1_bit;%M31.0;Output;Read;
+MCI;Orden Giro Motor Cabina Izquierda - Descender;1_bit;%M31.1;Output;Read;
+MPD;Orden Giro Motor Puerta Derecha - Apertura;1_bit;%M31.2;Output;Read;
+MPI;Orden Giro Motor Puerta Izquierda - Cierre;1_bit;%M31.3;Output;Read;
+LA;Lámpara Indicadora de llamada ascendente;1_bit;%M31.4;Output;Read;
+LD;Lámpara Indicadora de llamada descendente;1_bit;%M31.5;Output;Read;
+Z;Zumbador Indicador de llamada;1_bit;%M31.6;Output;Read;
+Pos0;Cabina en Planta 0;1_bit;%M20.0;Variable;Read;
+Pos1;Cabina en Planta 1;1_bit;%M20.1;Variable;Read;
+Pos2;Cabina en Planta 2;1_bit;%M20.2;Variable;Read;
+Pos3;Cabina en Planta 3;1_bit;%M20.3;Variable;Read;
+Call0;Llamada en Planta 0;1_bit;%M20.4;Variable;Read;
+Call1;Llamada en Planta 1;1_bit;%M20.5;Variable;Read;
+Call2;Llamada en Planta 2;1_bit;%M20.6;Variable;Read;
+Call3;Llamada en Planta 3;1_bit;%M20.7;Variable;Read;
+hayCall;Existencia de llamada;1_bit;%M21.0;Variable;Read;
+upCall;Existencia de llamadas ascendente;1_bit;%M21.1;Variable;Read;
+downCall;Existencia de llamada descendente;1_bit;%M21.2;Variable;Read;
+callInFloor;Posición cabina coincide con llamada;1_bit;%M21.3;Variable;Read;
+resetCall;Finalizar llamada respondida;1_bit;%M21.4;Variable;Read;
+memUp;Memoria Cabina Ascendiendo;1_bit;%M21.5;Variable;Read;
+memDown;Memoria Cabina Descendiendo;1_bit;%M21.6;Variable;Read;
+sistemaActivado;Estado general del sistema;1_bit;%M21.7;Variable;Read;
+descenderBaja;Descender a la primera planta;1_bit;%M22.0;Variable;Read;
+modoManual;Activación del modo manual;1_bit;%M22.1;Variable;Read;
+modoAuto;Activación del modo automático;1_bit;%M22.2;Variable;Read;
+abrirPuertas;Iniciar secuencia de apertura de puertas;1_bit;%M22.3;Variable;Read;
+esperandoOrden;Iniciar secuencia de decisión sobre el movimiento;1_bit;%M22.4;Variable;Read;
+error1;Indicador de emergencia tipo 1;1_bit;%M22.5;Variable;Read;
+error2;Indicador de emergencia tipo 2;1_bit;%M22.6;Variable;Read;
+Timer;Temporizador para el cierre de puertas;1_bit;%M22.7;Variable;Read;
+moveUp;Orden de Acender;1_bit;%M23.0;Variable;Read;
+moveDown;Orden de Descender;1_bit;%M23.1;Variable;Read;
+finalizaLlamada;Resetea una llamada;1_bit;%M23.2;Variable;Read;
+deleteAllCalls;Resetea todas las llamadas;1_bit;%M23.3;Variable;Read;

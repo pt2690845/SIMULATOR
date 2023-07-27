@@ -1,0 +1,272 @@
+﻿<Window x:Class="SIMULATOR.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:SIMULATOR.Controls"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        WindowState="Maximized"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        d:DesignHeight="864" d:DesignWidth="1536">
+    <Window.Resources>
+        <System:Double x:Key="startingPositionCabin">600</System:Double>
+        <System:Double x:Key="startingPositionCounterweigth">125</System:Double>
+        <System:Double x:Key="leftPosition">226</System:Double>
+        <System:Double x:Key="leftPositionButtons">250</System:Double>
+        <Thickness x:Key="buttonMargin" Top="-15" Bottom="-15" Left="-15" Right="-15"/>
+        <Thickness x:Key="boxMargin" Top="10" Bottom="10" Left="20" Right="20"></Thickness>
+        <SolidColorBrush x:Key="foreground" Color="#22202E"></SolidColorBrush>
+        <SolidColorBrush x:Key="background" Color="#282538"></SolidColorBrush>
+        <SolidColorBrush x:Key="foregorundHighlight" Color="#50B6FE"></SolidColorBrush>
+        <SolidColorBrush x:Key="backgroundHighlight" Color="#FF181E36"></SolidColorBrush>
+        <SolidColorBrush x:Key="fontColor" Color="#A5A5B0"></SolidColorBrush>
+    </Window.Resources>
+    <Grid Background="{StaticResource background}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <local:titleBar Background="{StaticResource foreground}" Title="Simulador"></local:titleBar>
+        <DockPanel Grid.Row="1" Margin="0,0,0,10" Background="{StaticResource foreground}">
+            <DockPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="10"></Setter>
+                    <Setter Property="Background" Value="{StaticResource backgroundHighlight}"></Setter>
+                    <Setter Property="Foreground" Value="{StaticResource fontColor}"></Setter>
+                    <Setter Property="BorderBrush" Value="{StaticResource foregorundHighlight}"></Setter>
+                    <Setter Property="Height" Value="40"></Setter>
+                    <Setter Property="Width" Value="160"></Setter>
+                </Style>
+            </DockPanel.Resources>
+            <Button x:Name="StartSimulation" DockPanel.Dock="Left" Click="StartSimulation_Click">Comenzar Simulación</Button>
+            <Button x:Name="StopSimulation" DockPanel.Dock="Left" Click="StopSimulation_Click">Parar Simulación</Button>
+            <Button x:Name="StartComs" DockPanel.Dock="Left" Click="StartComs_Click">Comenzar Comunicaciones</Button>
+            <Button x:Name="StopComs" DockPanel.Dock="Left" Click="StopComs_Click">Parar Comunicaciones</Button>
+            <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Click="ComsData_Click">Datos Comunicaciones</Button>
+            <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Click="SimulatorTest_Click">Prueba Simulador</Button>
+            <Button DockPanel.Dock="Right" HorizontalAlignment="Right" Click="Config_Click">Configuración</Button>
+        </DockPanel>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="375"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Background="{StaticResource foreground}" Margin="20,10" ClipToBounds="True">
+                <Canvas>
+                    <Rectangle Canvas.Left="0" Width="200" Height="40" Fill="{StaticResource foreground}" Canvas.ZIndex="3" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                    <local:motor x:Name="mainMotor" Canvas.Left="73" Canvas.Top="0" Panel.ZIndex="10"/>
+                    <local:Cabin x:Name="mainCabin" Canvas.Left="109" Canvas.Top="{StaticResource startingPositionCabin}" HorizontalAlignment="Left" 
+                                     VerticalAlignment="Center" Width="121" Canvas.ZIndex="2"/>
+                    <local:loadIndicator x:Name="mainCabinLoadIndicator" Canvas.Left="109" Canvas.Top="{StaticResource startingPositionCabin}"
+                                     Canvas.ZIndex="3">
+                    </local:loadIndicator>
+                    <local:CounterWeight x:Name="mainCounterWeight"   
+                                     Canvas.Left="67" 
+                                     Canvas.Top="{StaticResource startingPositionCounterweigth}" 
+                                     HorizontalAlignment="Left" 
+                                     VerticalAlignment="Center" 
+                                     Canvas.ZIndex="2" 
+                                     Width="33"/>
+                    <local:motor x:Name="doorMotor"                   
+                             Visibility="Hidden"/>
+                    <local:door x:Name="rightDoor"                    
+                            Canvas.Left="154" 
+                            Canvas.Top="{StaticResource startingPositionCabin}"/>
+                    <local:door x:Name="leftDoor"                     
+                            Canvas.Left="154" 
+                            Canvas.Top="{StaticResource startingPositionCabin}">
+                        <local:door.RenderTransform>
+                            <ScaleTransform ScaleX="-1"/>
+                        </local:door.RenderTransform>
+                    </local:door>
+                    <local:limitSwitch x:Name="firstFloorLimit" 
+                                   Canvas.Left="{StaticResource leftPosition}" 
+                                   Canvas.Top="600" >
+                        <local:limitSwitch.RenderTransform>
+                            <RotateTransform Angle="-90"/>
+                        </local:limitSwitch.RenderTransform>
+                    </local:limitSwitch>
+                    <local:limitSwitch x:Name="secondFloorLimit" 
+                                   Canvas.Left="{StaticResource leftPosition}" 
+                                   Canvas.Top="450" >
+                        <local:limitSwitch.RenderTransform>
+                            <RotateTransform Angle="-90"/>
+                        </local:limitSwitch.RenderTransform>
+                    </local:limitSwitch>
+                    <local:limitSwitch x:Name="thirdFloorLimit" 
+                                   Canvas.Left="{StaticResource leftPosition}" 
+                                   Canvas.Top="300" >
+                        <local:limitSwitch.RenderTransform>
+                            <RotateTransform Angle="-90"/>
+                        </local:limitSwitch.RenderTransform>
+                    </local:limitSwitch>
+                    <local:limitSwitch x:Name="fourthFloorLimit" 
+                                   Canvas.Left="{StaticResource leftPosition}" 
+                                   Canvas.Top="150" >
+                        <local:limitSwitch.RenderTransform>
+                            <RotateTransform Angle="-90"/>
+                        </local:limitSwitch.RenderTransform>
+                    </local:limitSwitch>
+                    <local:limitSwitch x:Name="doorOpenLimit" 
+                                   Canvas.Left="109" 
+                                   Canvas.Top="{StaticResource startingPositionCabin}" 
+                                   HorizontalAlignment="Left" />
+
+                    <local:limitSwitch x:Name="doorClosedLimit" 
+                                   Canvas.Left="144" 
+                                   Canvas.Top="{StaticResource startingPositionCabin}"
+                                   HorizontalAlignment="Left"/>
+                    <local:button x:Name="fourthFloorButtonHall" 
+                              NumberIndicator="LL" 
+                              Margin="{StaticResource buttonMargin}"
+                              Canvas.Top="200"
+                              Canvas.Left="{StaticResource leftPositionButtons}"/>
+                    <local:button x:Name="thirdFloorButtonHall" 
+                              NumberIndicator="LL" 
+                              Margin="{StaticResource buttonMargin}"
+                              Canvas.Top="350"
+                              Canvas.Left="{StaticResource leftPositionButtons}"/>
+                    <local:button x:Name="secondFloorButtonHall" 
+                              NumberIndicator="LL" 
+                              Margin="{StaticResource buttonMargin}"
+                              Canvas.Top="500"
+                              Canvas.Left="{StaticResource leftPositionButtons}"/>
+                    <local:button x:Name="firstFloorButtonHall" 
+                              NumberIndicator="LL" 
+                              Margin="{StaticResource buttonMargin}"
+                              Canvas.Top="650"
+                              Canvas.Left="{StaticResource leftPositionButtons}"/>
+                    <Canvas>
+                        <local:cabinSensors x:Name="myCabinSensors"></local:cabinSensors>
+                    </Canvas>
+                    
+                    <Canvas.RenderTransform>
+                        <ScaleTransform ScaleX="0.82" ScaleY="0.82"></ScaleTransform>
+                    </Canvas.RenderTransform>
+                </Canvas>
+            </Border>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="300"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="600"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Margin="20,10,10,10" Background="{StaticResource foreground}">
+                        <Label Foreground="{StaticResource fontColor}" FontSize="19">
+                            Interior cabina
+                        </Label>
+                        <Border BorderThickness="2" Grid.Column="0" VerticalAlignment="Center"        
+                                CornerRadius="10"    
+                                Background="{StaticResource backgroundHighlight}"
+                                BorderBrush="{StaticResource foregorundHighlight}"
+                                HorizontalAlignment="Center"   
+                                Width="auto"    
+                                Height="auto"
+                                Padding="10">
+                            <StackPanel Orientation="Vertical" >
+
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <local:button x:Name="firstFloorButtonCabin" NumberIndicator="0" Margin="{StaticResource buttonMargin}"></local:button>
+                                    <local:button x:Name="secondFloorButtonCabin" NumberIndicator="1" Margin="{StaticResource buttonMargin}"></local:button>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <local:button x:Name="thirdFloorButtonCabin" NumberIndicator="2" Margin="{StaticResource buttonMargin}"></local:button>
+                                    <local:button x:Name="fourthFloorButtonCabin" NumberIndicator="3" Margin="{StaticResource buttonMargin}"></local:button>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <local:button x:Name="openDoorButtonCabin" NumberIndicator="&#9204;&#124;&#9205;" Margin="{StaticResource buttonMargin}"></local:button>
+                                    <local:button x:Name="closeDoorButtonCabin" NumberIndicator="&#9205;&#124;&#9204;" Margin="{StaticResource buttonMargin}"></local:button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="10,10,20,10" Background="{StaticResource foreground}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Foreground="{StaticResource fontColor}" FontSize="19">
+                            Operario
+                        </Label>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                            <local:toggle x:Name="systemActivation" TextOn="Desactivado" TextOff="Activado" Margin="10" Toggled="False"></local:toggle>
+                            <local:toggle x:Name="operationMode" Margin="10" TextOn="Automático" TextOff="Manual" Toggled="False"></local:toggle>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" VerticalAlignment="Center"  Grid.Column="1">
+                            <local:toggle x:Name="stopEmergency" Margin="10" TextOn="Emergencia 1" TextOff="Emergencia 1" IsRed="True" Toggled="False"></local:toggle>
+                            <local:toggle x:Name="firstFloorEmergency" Margin="10" TextOn="Emergencia 2" TextOff="Emergencia 2" IsRed="True" Toggled="False"></local:toggle>
+                        </StackPanel>
+                        <Border BorderThickness="2" Grid.Column="2" VerticalAlignment="Center"        
+                                CornerRadius="10"    
+                                HorizontalAlignment="Center"    
+                                Width="auto"    
+                                Height="auto"
+                                Padding="10"
+                                Background="{StaticResource backgroundHighlight}"
+                                BorderBrush="{StaticResource foregorundHighlight}"
+                                x:Name="operatorButtonContainer">
+                            <StackPanel>
+                                <StackPanel Orientation="Vertical">
+                                    <local:button x:Name="goUp" NumberIndicator="&#9206;" Margin="{StaticResource buttonMargin}"></local:button>
+                                    <local:button x:Name="ignore" NumberIndicator="&#9209;" Margin="{StaticResource buttonMargin}"></local:button>
+                                    <local:button x:Name="goDown" NumberIndicator="&#9207;" Margin="{StaticResource buttonMargin}"></local:button>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer Padding="10"  Background="#22202e" Margin="{StaticResource boxMargin}" Grid.Row="0" FlowDirection="LeftToRight" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <WrapPanel x:Name="VariableContainer" Orientation="Horizontal">
+                        </WrapPanel>
+                        </ScrollViewer>
+                        <Grid Grid.Row="2" Margin="{StaticResource boxMargin}"  Background="#22202e">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Margin="10, 30" x:Name="fistColumnStateIndicators">
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Width="1" Background="#50b6fe" Margin="0,30,0,30"></StackPanel>
+                        <StackPanel Grid.Column="2"  Margin="10, 30" x:Name="secondColumnStateIndicators"></StackPanel>
+                        <StackPanel Grid.Column="3" Width="1" Background="#50b6fe" Margin="0,30,0,30"></StackPanel>
+                        <StackPanel Grid.Column="4"  Margin="10, 30" x:Name="thirdColumnStateIndicator">
+                            
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type local:stateIndicator}">
+                                    <Setter Property="FontSize" Value="20"></Setter>
+                                    <Setter Property="Foreground" Value="#a5a5b0"></Setter>
+                                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                                    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                </Style>
+                            </StackPanel.Resources>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+        <StackPanel  Background="{StaticResource foreground}" Grid.Row="3" Orientation="Horizontal" Margin="0, 10, 0, 0" FlowDirection="RightToLeft">
+            <Ellipse Width="10" Height="10" Fill="Green" Margin="10, 10, 5, 10" x:Name="conectionState"></Ellipse>
+            <TextBlock Foreground="{StaticResource fontColor}" Margin="0,10,10,10">Estado de la conexión</TextBlock>
+            <TextBlock Foreground="{StaticResource fontColor}" Margin="10,10,0,10" x:Name="simulationState">en ejecución</TextBlock>
+            <TextBlock Foreground="{StaticResource fontColor}" Margin="0,10,0,10"> &#160;: Estado de la simulación</TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

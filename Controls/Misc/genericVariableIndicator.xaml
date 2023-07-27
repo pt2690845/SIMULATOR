@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="SIMULATOR.Controls.Misc.genericVariableIndicator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SIMULATOR.Controls"
+             mc:Ignorable="d"
+             Width="770">
+    <StackPanel Orientation="Vertical" >
+        <StackPanel.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="20"></Setter>
+            </Style>
+        </StackPanel.Resources>
+        <StackPanel Orientation="Horizontal" MouseDown="ContainerClicked" x:Name="columnContainer" Background="Transparent">
+            <StackPanel.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="20"></Setter>
+                    <Setter Property="Width" Value="100"></Setter>
+                    <Setter Property="TextTrimming" Value="CharacterEllipsis"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock x:Name="nameColumn" Margin="10,2,10,2"> Nombre</TextBlock>
+            <TextBlock x:Name="variableTypeColumn" Margin="10, 2, 10,2">Tipo de variable</TextBlock>
+            <TextBlock x:Name="directionColumn" Margin="10, 2, 10,2">Dirección</TextBlock>
+            <TextBlock x:Name="groupColumn" Margin="10, 2, 10,2">Grupo</TextBlock>
+            <TextBlock x:Name="accessColumm" Margin="10, 2, 10,2">Acceso</TextBlock>
+            <local:boolIndicator x:Name="valueColumnBool" VariableName="True" Width="150" Margin="10, 2, 10,2" PreviewMouseDown="BoolVariableClicked"></local:boolIndicator>
+            <TextBox x:Name="valueColumnNumeric" Width="100" Margin="10, 2, 10,2"></TextBox>
+            <TextBlock></TextBlock>
+        </StackPanel>
+        <StackPanel x:Name="extraContentContainer" Visibility="Collapsed" Background="Gray">
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left" Margin="10, 2, 10,2" x:Name="stateHeader" Foreground="DarkGray">Grupo de estados:</TextBlock>
+                <TextBlock DockPanel.Dock="Right" x:Name="stateContainer" Margin="10, 2, 10,2">Lorem Impsum Lorem ipsum loren ipsum</TextBlock>
+            </DockPanel>
+            <DockPanel>
+                <TextBlock DockPanel.Dock="Left" Margin="10, 2, 10,2" Foreground="DarkGray">Descripción:</TextBlock>
+                <TextBlock DockPanel.Dock="Right" x:Name="descriptionContainer" Margin="10, 2, 10,2">Lorem Impsum Lorem ipsum loren ipsum</TextBlock>
+            </DockPanel>
+            <StackPanel.RenderTransform>
+                <ScaleTransform x:Name="st">
+                    
+                </ScaleTransform>
+            </StackPanel.RenderTransform>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

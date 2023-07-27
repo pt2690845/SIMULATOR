@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Controls\Misc\genericVariableIndicator.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\configWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Misc\boolIndicator.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Simulator\button.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Simulator\cabin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Misc\stateIndicator.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Misc\titleBar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Simulator\counterWeight.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Simulator\door.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Simulator\limitSwitch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Simulator\loadIndicator.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Simulator\motor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Simulator\cabinSensors.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Misc\sliderWithLimit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\Misc\toggle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\plcMemoryWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\simulatorTest.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\Misc\genericVariableIndicator.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\configWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Misc\boolIndicator.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Simulator\button.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Simulator\cabin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Misc\stateIndicator.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Misc\titleBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Simulator\counterWeight.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Simulator\door.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Simulator\limitSwitch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Simulator\loadIndicator.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Simulator\motor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Simulator\cabinSensors.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Misc\sliderWithLimit.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\Misc\toggle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\plcMemoryWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\simulatorTest.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

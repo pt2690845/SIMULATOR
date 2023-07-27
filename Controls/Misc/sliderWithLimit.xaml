@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="SIMULATOR.Controls.sliderWithLimit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SIMULATOR.Controls"
+             mc:Ignorable="d" Height="100" Width="545">
+    <Grid>
+        <Canvas x:Name="Container" Width="500" Height="100" MouseMove="MouseMove_Container" MouseEnter="MouseEnter_Container" MouseLeave="MouseLeave_Container">
+        <Path Stroke="#46B9A2" StrokeThickness="20" Panel.ZIndex="1" x:Name="lineIndicator">
+            <Path.Data>
+                <PathGeometry Figures="M 0,50 L 500,50"></PathGeometry>
+            </Path.Data>
+        </Path>
+        <Path Stroke="DarkGray" StrokeThickness="20" x:Name="backgroundIndicatorInRange">
+            <Path.Data>
+                <PathGeometry Figures="M 0,50 L 500,50"></PathGeometry>
+            </Path.Data>
+        </Path>
+        <Path Stroke="Gray" StrokeThickness="20" x:Name="backgroundIndicatorOutOfRange" Panel.ZIndex="-1">
+            <Path.Data>
+                <PathGeometry Figures="M 0,50 L 500,50"></PathGeometry>
+            </Path.Data>
+        </Path>
+        <Ellipse Name="pointIndicator"
+                         Width="40"
+                         Height="40"
+                         Fill="LightBlue"
+                         Canvas.Top="30"
+                         Canvas.Left="-20"
+                         Canvas.ZIndex ="5"/> 
+    </Canvas>
+    </Grid>
+</UserControl>
